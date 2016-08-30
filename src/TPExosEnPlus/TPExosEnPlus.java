@@ -407,7 +407,7 @@ public class TPExosEnPlus {
      * et le retransforme en String
      * @param tabIn
      * @param deleteChar
-     * @return
+     * @return string
      */
     private static String supprimeChar(String tabIn, int deleteChar){
         String[] res = tabIn.split("");
@@ -428,12 +428,17 @@ public class TPExosEnPlus {
         return builder.toString();
     }
 
+    /**
+     * crypte en augmentant de 1 chaque lettre
+     * @param crypter
+     * @return string
+     */
     private static String cryptagePlus1(String crypter) {
         String[]  res = crypter.toLowerCase().split("");
         for (int i = 0; i < res.length; i++) {
             for (int j = 0; j < ALPHABET.length; j++) {
                 if (res[i].equals(ALPHABET[j])) {
-                    if(res[i] != "z"){
+                    if(! res[i].equals("z")){
                         res[i] = ALPHABET[j + 1];
                     }//end if
                     else {
@@ -443,15 +448,10 @@ public class TPExosEnPlus {
                 }//end if
             }//end for
         }//end for
-        /*StringBuilder builder = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         for (String s : res) {
             builder.append(s);
         }//end foreach
-        return builder.toString();*/
-        for (String re : res) {
-            System.out.printf(re);
-        }//end foreach
-        System.out.println("");
-        return "Message sans importance";
+        return builder.toString();
     }
 }
